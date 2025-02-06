@@ -20,30 +20,30 @@
             line-height: 1.6;
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 20px;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
+/* Header & Navigation */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: auto;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
 
         .nav-links {
             list-style: none;
@@ -54,18 +54,17 @@
             margin: 0 15px;
         }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 15px;
-            transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-        }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
 
-        .nav-links a:hover {
-            color: #ffeb3b;
-            transform: translateY(-2px);
-        }
+.nav-links a:hover {
+    color: #ffeb3b;
+}
 
         /* Hero Section */
         .hero {
@@ -195,14 +194,15 @@
 
     <header>
         <nav>
-            <div class="logo">Dairy Management</div>
+            <div class="logo">Dairy Management System</div>
             <ul class="nav-links">
-                <li><a href="./Pages/login.html">login</a></li>
+                <li><a href="./Pages/login.html">Login</a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="./Pages/contact.html">Contact</a></li>
             </ul>
+            <div class="hamburger">&#9776;</div>
         </nav>
     </header>
 
@@ -261,6 +261,13 @@
 
     <script>
         console.log("Dairy Management System Loaded");
+
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
     </script>
 
 </body>
