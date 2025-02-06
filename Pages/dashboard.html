@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dark Navbar - Dairy Clouds</title>
     <style>
         * {
             margin: 0;
@@ -14,53 +14,76 @@
 
         body {
             background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background: #000; 
-            color: white;
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #1c2833;
+            padding: 20px;
             position: fixed;
-            width: 100%;
             top: 0;
             left: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .navbar .logo {
             font-size: 2rem;
             font-weight: bold;
-            color: #fff;
+            color: #fff; /* White text */
             text-transform: uppercase;
+            transition: color 0.3s ease-in-out;
         }
 
-        .nav-links {
+        .sidebar ul {
             list-style: none;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            cursor: pointer;
             display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+            color: #ecf0f1;
         }
 
-        .nav-links li {
-            margin: 0 15px;
+        .sidebar ul li:hover, .sidebar ul li.active {
+            background: #34495e;
+            border-radius: 5px;
         }
 
-        .nav-links a {
+        .sidebar ul li a {
             text-decoration: none;
-            color: white;
+            color: white; /* White text */
             font-size: 1.1rem;
             font-weight: 500;
             transition: all 0.3s ease-in-out;
             position: relative;
         }
 
+        /* Underline Hover Effect */
+        .nav-links a::after {
+            content: "";
+            width: 0%;
+            height: 3px;
+            background: #fff; /* White underline */
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .nav-links a:hover {
-            color: #f1f1f1; 
+            color: #f1f1f1; /* Slightly lighter white */
         }
 
         /* Hamburger Menu */
@@ -85,22 +108,24 @@
                 top: 60px;
                 left: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.95);
+                background: rgba(0, 0, 0, 0.95); /* Dark overlay */
                 text-align: center;
                 padding: 10px 0;
+                border-radius: 5px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             }
 
-            .nav-links li {
-                margin: 15px 0;
-            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: block;
-            }
+        table th, table td {
+            padding: 10px;
+            border-bottom: 1px solid #2c3e50;
+            text-align: left;
+            color: #ecf0f1;
         }
 
         /* Main Content */
@@ -174,65 +199,33 @@
     <nav class="navbar">
         <div class="logo">Dairy Clouds</div>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../Pages/product.html">Products</a></li>
-            <li><a href="../Pages/dashboard.html">Dashboard</a></li>
-            <li><a href="../Pages/about.html">About us</a></li>
-            <li><a href="../Pages/contact.html">Contact us</a></li>
-            <li><a href="../Pages/login.html">Login</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./Pages/product.html">Products</a></li>
+                <li><a href="./Pages/dashboard.html">Dashboard</a></li>
+                <li><a href="./Pages/about.html">About us</a></li>
+                <li><a href="./Pages/contact.html">Contact us</a></li>
+                <li><a href="./Pages/login.html">Login</a></li>
         </ul>
         <div class="hamburger">&#9776;</div>
     </nav>
 
-    <main>
-        <h1>Welcome to Dairy Clouds Dashboard</h1>
-        <p>Manage your dairy products efficiently and effectively.</p>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>Contact Us</h3>
-                <p>Phone: +91 9561510000</p>
-                <p>Email: support@krushna.com</p>
-                <p>Address: India</p>
-            </div>
-            <div class="quick-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Terms and Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="social-media">
-                <h3>Follow Us</h3>
-                <a href="https://facebook.com/" target="_blank"><img src="../images/facebook.png" height="30px" width="30px" alt="Facebook"></a>
-                <a href="https://twitter.com/" target="_blank"><img src="../images/Twitter.png" height="30px" width="30px" alt="Twitter"></a>
-                <a href="https://instagram.com/" target="_blank"><img src="../images/instagram.png" height="30px" width="30px" alt="Instagram"></a>
-                <a href="https://linkedin.com/" target="_blank"><img src="../images/linkedin.png" height="30px" width="30px" alt="LinkedIn"></a>
-            </div>
-            <div class="newsletter-signup">
-                <h3>Newsletter Signup</h3>
-                <form>
-                    <input type="email" placeholder="Your email address" required>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Dairy Clouds. All rights reserved.</p>
-        </div>
-    </footer>
-
     <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
-
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
+        var ctx = document.getElementById('milkChart').getContext('2d');
+        var milkChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                datasets: [{
+                    label: 'Milk In',
+                    data: [300, 400, 350, 420, 500, 380],
+                    backgroundColor: 'rgba(46, 204, 113, 0.8)'
+                }, {
+                    label: 'Milk Out',
+                    data: [280, 350, 320, 400, 450, 360],
+                    backgroundColor: 'rgba(231, 76, 60, 0.8)'
+                }]
+            }
         });
     </script>
-
 </body>
 </html>
