@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dairy Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #fafafa;
+            color: #333;
+            text-align: center;
+            font-size: 16px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        h1, h2 {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Why Choose Us */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .feature {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .feature i {
+            font-size: 2rem;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* Team Section */
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .member {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 230px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .member:hover {
+            transform: translateY(-5px);
+        }
+        .member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #27ae60;
+        }
+        .social-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-links a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #27ae60;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="section fade-in" id="about-section">
+            <h1>About <span class="highlight">Dairy Management</span></h1>
+            <p>Welcome to <span class="highlight">Dairy Management</span>, the leading platform designed to help dairy farmers and businesses efficiently manage operations and increase productivity.</p>
+            <p>We aim to make dairy farming simpler and more sustainable through digital innovation.</p>
+            <p>Join us in revolutionizing the dairy industry for a smarter future!</p>
+        </div>
+
+        <div class="section fade-in">
+            <h2>Why Choose Us?</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Efficiency</h3>
+                    <p>Optimize dairy farm operations with real-time data management.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Productivity</h3>
+                    <p>Increase milk production and streamline daily tasks effortlessly.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security</h3>
+                    <p>Keep your data safe with our highly secure platform.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-users"></i>
+                    <h3>Easy to Use</h3>
+                    <p>User-friendly interface designed for farmers of all scales.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section fade-in" id="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-members">
+                <div class="member">
+                    <img src="../images/yash.jpg" alt="Yash Yeole">
+                    <h3>Yash Yeole</h3>
+                    <p>Co-Founder & Developer</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/yashyeole09/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                        <a href="https://github.com/yashyeole09" target="_blank"><i class="fab fa-github"></i>Github</a>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="../images/pratik.jpg" alt="Pratik Shedge">
+                    <h3>Pratik Shedge</h3>
+                    <p>Co-Founder & Designer</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/pratik-shedge-995037293/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                        <a href="https://github.com/Pratik-shedge07" target="_blank"><i class="fab fa-github"></i>Github</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        });
+    </script>
+</body>
+</html>
