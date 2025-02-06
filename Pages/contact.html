@@ -10,13 +10,15 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            padding-top: 70px; /* Adjusted for navbar */
         }
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
-            background: #000; /* Dark black background */
+            background: #000;
             color: white;
             position: fixed;
             width: 100%;
@@ -29,7 +31,7 @@
         .navbar .logo {
             font-size: 2rem;
             font-weight: bold;
-            color: #fff; /* White text */
+            color: #fff;
             text-transform: uppercase;
             transition: color 0.3s ease-in-out;
         }
@@ -45,19 +47,18 @@
 
         .nav-links a {
             text-decoration: none;
-            color: white; /* White text */
+            color: white;
             font-size: 1.1rem;
             font-weight: 500;
             transition: all 0.3s ease-in-out;
             position: relative;
         }
 
-        /* Underline Hover Effect */
         .nav-links a::after {
             content: "";
             width: 0%;
             height: 3px;
-            background: #fff; /* White underline */
+            background: #fff;
             position: absolute;
             bottom: -5px;
             left: 50%;
@@ -72,6 +73,7 @@
         .nav-links a:hover {
             color: #f1f1f1; 
         }
+
         .hamburger {
             display: none;
             font-size: 2rem;
@@ -83,6 +85,7 @@
         .hamburger:hover {
             transform: rotate(90deg);
         }
+
         @media screen and (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -91,7 +94,7 @@
                 top: 60px;
                 left: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.95); 
+                background: rgba(0, 0, 0, 0.95);
                 text-align: center;
                 padding: 10px 0;
                 border-radius: 5px;
@@ -110,24 +113,29 @@
                 display: block;
             }
         }
+
         .container {
             width: 80%;
             margin: auto;
             padding: 20px;
         }
+
         iframe {
             width: 100%;
             height: 300px;
             border: none;
         }
+
         .contact-info {
             margin: 20px 0;
         }
+
         .contact-form {
             max-width: 500px;
             margin: auto;
             text-align: left;
         }
+
         input, textarea {
             width: 100%;
             padding: 10px;
@@ -135,6 +143,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         button {
             background-color: #2980b9;
             color: white;
@@ -143,21 +152,84 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #6dd5fa;
         }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .footer-content div {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+
+        .footer-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9800;
+            padding-bottom: 5px;
+        }
+
+        .quick-links ul {
+            list-style: none;
+        }
+
+        .quick-links ul li a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .quick-links ul li a:hover {
+            color: #ff9800;
+        }
+
+        .social-media a {
+            display: inline-block;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-media a:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            font-size: 14px;
+            
+        }
+
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">Dairy Clouds</div>
         <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../Pages/product.html">Products</a></li>
-                <li><a href="../Pages/dashboard.html">Dashboard</a></li>
-                <li><a href="../Pages/about.html">About us</a></li>
-                <li><a href="../Pages/contact.html">Contact us</a></li>
-                <li><a href="../Pages/login.html">Login</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../Pages/product.html">Products</a></li>
+            <li><a href="../Pages/dashboard.html">Dashboard</a></li>
+            <li><a href="../Pages/about.html">About us</a></li>
+            <li><a href="../Pages/contact.html">Contact us</a></li>
+            <li><a href="../Pages/login.html">Login</a></li>
         </ul>
         <div class="hamburger">&#9776;</div>
     </nav>
@@ -166,10 +238,10 @@
         <h2>Contact Us</h2>
         
         <div class="contact-info">
-            <p><strong>Company Name:</strong> ABC Corporation</p>
-            <p><strong>Address:</strong> 123 Main Street, New York, NY 10001</p>
+            <p><strong>Company Name:</strong>Dairy Clouds</p>
+            <p><strong>Address:</strong>Smruti Niwas,Pune,412220</p>
             <p><strong>Phone:</strong> +1 234 567 890</p>
-            <p><strong>Email:</strong> contact@abccompany.com</p>
+            <p><strong>Email:</strong> contact@dairyclouds.com</p>
         </div>
 
         <h3>Find Us Here</h3>
@@ -190,6 +262,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="contact-info">
@@ -209,32 +282,31 @@
             </div>
             <div class="social-media">
                 <h3>Follow Us</h3>
-                <a href="https://facebook.com/" target="_blank"><img src="../icon/facebook.png" alt="Facebook"></a>
-                <a href="https://twitter.com/" target="_blank"><img src="../icon/Twitter.png" alt="Twitter"></a>
-                <a href="https://instagram.com/" target="_blank"><img src="../icon/instagram.png" alt="Instagram"></a>
-                <a href="https://linkedin.com/" target="_blank"><img src="../icon/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://facebook.com/" target="_blank"><img src="../images/facebook.png"height="30px" width="30px" alt="Facebook"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="../images/Twitter.png" height="30px" width="30px" alt="Twitter"></a>
+                <a href="https://instagram.com/" target="_blank"><img src="../images/instagram.png" height="30px" width="30px"alt="Instagram"></a>
+                <a href="https://linkedin.com/" target="_blank"><img src="../images/linkedin.png" height="30px" width="30px" alt="LinkedIn"></a>
             </div>
             <div class="newsletter-signup">
                 <h3>Newsletter Signup</h3>
                 <form>
                     <input type="email" placeholder="Your email address" required>
-                    <button type="submit">Subscribe</button>
+                    
                 </form>
             </div>
         </div>
-        </footer>
-            <div class="footer-bottom">
-                <p>&copy; 2024 . All rights reserved.</p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dairy Clouds. All rights reserved.</p>
+        </div>
     </footer>
+
     <script>
         const hamburger = document.querySelector(".hamburger");
         const navLinks = document.querySelector(".nav-links");
 
         hamburger.addEventListener("click", () => {
             navLinks.classList.toggle("active");
-        });</script>
-
-<</body>
-
+        });
+    </script>
+</body>
 </html>
