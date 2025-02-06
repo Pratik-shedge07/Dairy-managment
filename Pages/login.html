@@ -13,6 +13,7 @@
             background: linear-gradient(120deg, #2980b9, #6dd5fa);
             font-family: Arial, sans-serif;
         }
+
         .login-container {
             background: white;
             padding: 20px;
@@ -20,15 +21,19 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
             animation: fadeIn 1s ease-in-out;
+            position: relative;
         }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         .input-box {
             position: relative;
             margin: 20px 0;
         }
+
         .input-box input {
             width: 100%;
             padding: 10px;
@@ -37,10 +42,12 @@
             outline: none;
             transition: 0.3s;
         }
+
         .input-box input:focus {
             border-color: #6dd5fa;
             box-shadow: 0 0 5px #6dd5fa;
         }
+
         .btn {
             background: #2980b9;
             color: white;
@@ -50,13 +57,33 @@
             cursor: pointer;
             transition: 0.3s;
         }
+
         .btn:hover {
             background: #6dd5fa;
+        }
+
+        /* Cross Button Styles */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: #2980b9;
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #6dd5fa;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
+        <!-- Cross Button, redirects to home page when clicked -->
+        <button class="close-btn" onclick="'./Pages/index.html'">&times;</button>
         <h2>Login</h2>
         <form onsubmit="return handleLogin(event)">
             <div class="input-box">
@@ -70,6 +97,7 @@
             <button type="submit" class="btn">Login</button>
         </form>
     </div>
+
     <script>
         function handleLogin(event) {
             event.preventDefault();
@@ -80,6 +108,11 @@
             } else {
                 alert('Invalid credentials, try again.');
             }
+        }
+
+        // Function to redirect to home page
+        function goToHomePage() {
+            window.location.href = './Pages/index.html';  // Redirect to 'index.html' inside the Pages folder
         }
     </script>
 </body>
