@@ -3,47 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dairy Management System</title>
+    <title>Dairy Clouds</title>
     <style>
-        /* Reset & Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #f8f8f8;
-            color: #333;
-            line-height: 1.6;
+            background-color: #f4f4f4;
         }
 
-/* Header & Navigation */
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #000;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+        .navbar .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            transition: color 0.3s ease-in-out;
+        }
 
         .nav-links {
             list-style: none;
@@ -54,17 +48,74 @@ nav {
             margin: 0 15px;
         }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: color 0.3s ease-in-out;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
 
-.nav-links a:hover {
-    color: #ffeb3b;
-}
+        .nav-links a::after {
+            content: "";
+            width: 0%;
+            height: 3px;
+            background: #fff;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #f1f1f1;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        .hamburger.active {
+            transform: rotate(90deg);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                text-align: center;
+                padding: 10px 0;
+                border-radius: 5px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
 
         /* Hero Section */
         .hero {
@@ -192,19 +243,18 @@ nav {
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">Dairy Management System</div>
-            <ul class="nav-links">
-                <li><a href="./Pages/login.html">Login</a></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="./Pages/contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger">&#9776;</div>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="logo">Dairy Clouds</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./Pages/product.html">Products</a></li>
+            <li><a href="./Pages/dashboard.html">Dashboard</a></li>
+            <li><a href="./Pages/about.html">About us</a></li>
+            <li><a href="./Pages/contact.html">Contact us</a></li>
+            <li><a href="./Pages/login.html">Login</a></li>
+        </ul>
+        <div class="hamburger">&#9776;</div>
+    </nav>
 
     <section id="home" class="hero">
         <h1>Efficient Dairy Management System</h1>
@@ -245,17 +295,27 @@ nav {
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
                     <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
             <div class="social-media">
                 <h3>Follow Us</h3>
-                <a href="https://www.facebook.com/login.php"><img src="./images/facebook.png" height="30px" width="30px"></a>
-                <a href="https://x.com/?lang=en-id"><img src="./images/Twitter.png" height="30px" width="30px"></a></a>
-                <a href="https://www.instagram.com/"><img src="./images/instagram.png" height="30px" width="30px"></a></a>
-                <a href="https://www.linkedin.com/feed/"><img src="./images/linkedin.png" height="30px" width="30px"></a></a>
+                <a href="https://facebook.com/" target="_blank"><img src="./images/facebook.png" height="30px" width="30px"></a>
+                <a href="https://facebook.com/" target="_blank"><img src="./images/instagram.png" height="30px" width="30px"></a>
+                <a href="https://facebook.com/" target="_blank"><img src="./images/Twitter.png" height="30px" width="30px"></a>
+                <a href="https://facebook.com/" target="_blank"><img src="./images/linkedin.png" height="30px" width="30px"></a>
             </div>
+            <div class="newsletter-signup">
+                <h3>Newsletter Signup</h3>
+                <form>
+                    <input type="email" placeholder="Your email address" required>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dairy Clouds. All rights reserved.</p>
         </div>
     </footer>
 
@@ -267,6 +327,7 @@ nav {
 
         hamburger.addEventListener("click", () => {
             navLinks.classList.toggle("active");
+            hamburger.classList.toggle("active");
         });
     </script>
 
