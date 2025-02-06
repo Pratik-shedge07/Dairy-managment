@@ -11,6 +11,105 @@
             padding: 0;
             text-align: center;
         }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #000; /* Dark black background */
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff; /* White text */
+            text-transform: uppercase;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white; /* White text */
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+
+        /* Underline Hover Effect */
+        .nav-links a::after {
+            content: "";
+            width: 0%;
+            height: 3px;
+            background: #fff; /* White underline */
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #f1f1f1; 
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hamburger:hover {
+            transform: rotate(90deg);
+        }
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95); 
+                text-align: center;
+                padding: 10px 0;
+                border-radius: 5px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
         .container {
             width: 80%;
             margin: auto;
@@ -50,6 +149,18 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">Dairy Clouds</div>
+        <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../Pages/product.html">Products</a></li>
+                <li><a href="../Pages/dashboard.html">Dashboard</a></li>
+                <li><a href="../Pages/about.html">About us</a></li>
+                <li><a href="../Pages/contact.html">Contact us</a></li>
+                <li><a href="../Pages/login.html">Login</a></li>
+        </ul>
+        <div class="hamburger">&#9776;</div>
+    </nav>
 
     <div class="container">
         <h2>Contact Us</h2>
@@ -116,7 +227,14 @@
                 <p>&copy; 2024 . All rights reserved.</p>
             </div>
     </footer>
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
 
-</body>
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });</script>
+
+<</body>
 
 </html>
