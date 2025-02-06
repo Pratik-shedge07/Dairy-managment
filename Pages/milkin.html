@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dairy Management Dashboard</title>
+    <title>Milk In - Dairy Clouds</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -73,32 +73,63 @@
             width: calc(100% - 270px);
         }
 
-        .overview {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
+        .form-container {
+            background: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
             margin-bottom: 20px;
         }
 
-        .overview-box {
-            background: #34495e;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            flex: 1;
+        .form-container h3 {
+            margin-bottom: 10px;
         }
 
-        .table-container, .chart-container {
-            background: #34495e;
-            padding: 20px;
-            border-radius: 10px;
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .table-container {
             margin-top: 20px;
+            background: #34495e;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
         }
 
         table th, table td {
@@ -106,6 +137,10 @@
             border-bottom: 1px solid #2c3e50;
             text-align: left;
             color: #ecf0f1;
+        }
+
+        table tr:hover {
+            background: #2c3e50;
         }
     </style>
 </head>
@@ -123,68 +158,64 @@
     </div>
     
     <div class="main-content">
-        <h2>Dashboard</h2>
-        <div class="overview">
-            <div class="overview-box">
-                <h3>Milk In</h3>
-                <p>370 L</p>
+        <h2>Milk In</h2>
+        <div class="form-container">
+            <h3>Enter Milk Entry</h3>
+            <div class="form-group">
+                <label for="supplier">Supplier</label>
+                <select id="supplier">
+                    <option value="Supplier 1">Supplier 1</option>
+                    <option value="Supplier 2">Supplier 2</option>
+                </select>
             </div>
-            <div class="overview-box">
-                <h3>Milk Out</h3>
-                <p>310 L</p>
+            <div class="form-group">
+                <label for="quantity">Quantity (Liters)</label>
+                <input type="number" id="quantity" placeholder="Enter quantity">
             </div>
-            <div class="overview-box">
-                <h3>Stock</h3>
-                <p>60 L</p>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date">
             </div>
-            <div class="overview-box">
-                <h3>Earnings</h3>
-                <p>$37,594</p>
-            </div>
+            <button onclick="addMilkEntry()">Submit</button>
         </div>
 
         <div class="table-container">
-            <h3>Sales</h3>
+            <h3>Milk In Records</h3>
             <table>
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Date</th>
+                        <th>Supplier</th>
                         <th>Quantity</th>
-                        <th>Amount</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr><td>1</td><td>Darlene</td><td>08 Jun 2024</td><td>12 L</td><td>$980</td></tr>
-                    <tr><td>2</td><td>Eduardo</td><td>08 Jun 2024</td><td>10 L</td><td>$920</td></tr>
+                <tbody id="milkEntries">
                 </tbody>
             </table>
-        </div>
-
-        <div class="chart-container">
-            <h3>Milk Report</h3>
-            <canvas id="milkChart"></canvas>
         </div>
     </div>
     
     <script>
-        var ctx = document.getElementById('milkChart').getContext('2d');
-        var milkChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                datasets: [{
-                    label: 'Milk In',
-                    data: [300, 400, 350, 420, 500, 380],
-                    backgroundColor: 'rgba(46, 204, 113, 0.8)'
-                }, {
-                    label: 'Milk Out',
-                    data: [280, 350, 320, 400, 450, 360],
-                    backgroundColor: 'rgba(231, 76, 60, 0.8)'
-                }]
+        let entryCount = 0;
+        function addMilkEntry() {
+            const supplier = document.getElementById('supplier').value;
+            const quantity = document.getElementById('quantity').value;
+            const date = document.getElementById('date').value;
+            
+            if (!quantity || !date) {
+                alert('Please enter all details');
+                return;
             }
-        });
+
+            entryCount++;
+            const table = document.getElementById('milkEntries');
+            const row = table.insertRow();
+            row.innerHTML = `<td>${entryCount}</td><td>${supplier}</td><td>${quantity}L</td><td>${date}</td>`;
+            
+            document.getElementById('quantity').value = '';
+            document.getElementById('date').value = '';
+        }
     </script>
 </body>
 </html>
