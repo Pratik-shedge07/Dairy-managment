@@ -5,45 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dairy Management System</title>
     <style>
-      /* Reset & Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #f8f8f8;
-    color: #333;
-    line-height: 1.6;
-}
-
-
-        /* Navbar Styles */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background: #000; /* Dark black background */
-            color: white;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        /* Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
         }
 
-        .navbar .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #fff; /* White text */
-            text-transform: uppercase;
-            transition: color 0.3s ease-in-out;
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
         }
+
+/* Header & Navigation */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
 
         .nav-links {
             list-style: none;
@@ -54,317 +54,185 @@ body {
             margin: 0 15px;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: white; /* White text */
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease-in-out;
-            position: relative;
-        }
-
-        /* Underline Hover Effect */
-        .nav-links a::after {
-            content: "";
-            width: 0%;
-            height: 3px;
-            background: #fff; /* White underline */
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: width 0.3s ease-in-out;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: #f1f1f1; /* Slightly lighter white */
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: white;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .hamburger:hover {
-            transform: rotate(90deg);
-        }
-
-        /* Responsive Styles */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.95); /* Dark overlay */
-                text-align: center;
-                padding: 10px 0;
-                border-radius: 5px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            }
-
-            .nav-links li {
-                margin: 15px 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: block;
-            }
-        }
-
-/* Hero Section */
-.hero {
-    background: url('./images/dairy-bg.jpg') no-repeat center center/cover;
+.nav-links a {
     color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.hero h1 {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-button {
-    padding: 12px 20px;
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-button:hover {
-    background-color: #e68900;
-}
-
-/* Sections */
-section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 50px 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-}
-
-h2 {
-    font-size: 2em;
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #ff9800;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-ul li {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-/* Footer */
-footer {
-    background: #222;
-    color: white;
-    padding: 40px 0;
-    font-family: Arial, sans-serif;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-.footer-content div {
-    flex: 1;
-    min-width: 250px;
-    margin: 10px;
-}
-
-.footer-content h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #ff9800;
-    padding-bottom: 5px;
-    display: inline-block;
-}
-
-.contact-info p, .quick-links ul, .social-media a {
-    font-size: 16px;
-    margin: 8px 0;
-}
-
-.quick-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.quick-links ul li a {
     text-decoration: none;
-    color: #ddd;
+    font-size: 18px;
+    padding: 10px 15px;
     transition: color 0.3s ease-in-out;
 }
 
-.quick-links ul li a:hover {
-    color: #ff9800;
+.nav-links a:hover {
+    color: #ffeb3b;
 }
 
-.social-media a {
-    display: inline-block;
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-}
+        /* Hero Section */
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?dairy,farm') no-repeat center center/cover;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 120px 20px;
+        }
 
-.social-media a img {
-    width: 30px;
-    height: 30px;
-    filter: brightness(0) invert(1);
-}
+        .hero h1 {
+            font-size: 3em;
+        }
 
-.social-media a:hover {
-    transform: scale(1.2);
-}
+        button {
+            padding: 12px 20px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
 
-.newsletter-signup input {
-    width: 80%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
+        button:hover {
+            background-color: #e68900;
+        }
 
-.newsletter-signup button {
-    padding: 10px 15px;
-    border: none;
-    background: #ff9800;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
+        /* Sections */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
 
-.newsletter-signup button:hover {
-    background: #e68900;
-}
+        h2 {
+            text-align: center;
+            border-bottom: 3px solid #ff9800;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        text-align: center;
-    }
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 0;
+            font-family: Arial, sans-serif;
+        }
 
-    .nav-links {
-        flex-direction: column;
-        padding: 10px;
-    }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
 
-    .nav-links li {
-        margin: 10px 0;
-    }
+        .footer-content div {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
 
-    .hero {
-        padding: 80px 20px;
-    }
+        .footer-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9800;
+            padding-bottom: 5px;
+        }
 
-    .hero h1 {
-        font-size: 2.5em;
-    }
+        .contact-info p, .quick-links ul, .social-media a {
+            font-size: 16px;
+            margin: 8px 0;
+        }
 
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
+        .quick-links ul {
+            list-style: none;
+        }
 
-    .newsletter-signup input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
+        .quick-links ul li a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s ease-in-out;
+        }
 
+        .quick-links ul li a:hover {
+            color: #ff9800;
+        }
 
+        .social-media a {
+            display: inline-block;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-media a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <nav class="navbar">
-            <div class="logo">Dairy Clouds</div>
+        <nav>
+            <div class="logo">Dairy Management System</div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="./Pages/product.html">Products</a></li>
-                <li><a href="./Pages/dashboard.html">Dashboard</a></li>
-                <li><a href="./Pages/about.html">About us</a></li>
-                <li><a href="./Pages/contact.html">Contact us</a></li>
                 <li><a href="./Pages/login.html">Login</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="./Pages/contact.html">Contact</a></li>
             </ul>
             <div class="hamburger">&#9776;</div>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <h1>Welcome to the Dairy Management System</h1>
-            <p>Your one-stop solution for managing dairy operations efficiently.</p>
-            <button onclick="window.location.href='./Pages/login.html'">Get Started</button>
+    <section id="home" class="hero">
+        <h1>Efficient Dairy Management System</h1>
+        <p>Managing Dairy Operations with Ease</p>
+        <button onclick="">Get Started</button>
+    </section>
 
-        </section>
+    <section id="about">
+        <h2>About Dairy Management</h2>
+        <p>Dairy management involves tracking milk production, inventory, animal health, and financial reporting. Our system helps farmers streamline their operations.</p>
+    </section>
 
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We provide comprehensive solutions for dairy farmers to manage their operations, track production, and improve efficiency.</p>
-        </section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Milk Production Tracking</li>
+            <li>Inventory Management</li>
+            <li>Financial Reporting</li>
+            <li>Animal Health Monitoring</li>
+        </ul>
+    </section>
 
-        <section id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Milk Production Tracking</li>
-                <li>Inventory Management</li>
-                <li>Financial Reporting</li>
-                <li>Health Monitoring</li>
-            </ul>
-        </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@dairymanagement.com</p>
+        <p>Phone: +123 456 7890</p>
+    </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: info@dairymanagement.com</p>
-            <p>Phone: +123 456 7890</p>
-        </section>
-    </main>
-    
     <footer>
         <div class="footer-content">
             <div class="contact-info">
@@ -377,29 +245,19 @@ footer {
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
                     <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
             <div class="social-media">
                 <h3>Follow Us</h3>
-                <a href="https://facebook.com/" target="_blank"><img src="./images/facebook.png" alt="Facebook"></a>
-                <a href="https://twitter.com/" target="_blank"><img src="./images/Twitter.png" alt="Twitter"></a>
-                <a href="https://instagram.com/" target="_blank"><img src="./images/instagram.png" alt="Instagram"></a>
-                <a href="https://linkedin.com/" target="_blank"><img src="./images/instagram.png" alt="LinkedIn"></a>
-            </div>
-            <div class="newsletter-signup">
-                <h3>Newsletter Signup</h3>
-                <form>
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+                <a href="https://www.facebook.com/login.php"><img src="./images/facebook.png" height="30px" width="30px"></a>
+                <a href="https://x.com/?lang=en-id"><img src="./images/Twitter.png" height="30px" width="30px"></a></a>
+                <a href="https://www.instagram.com/"><img src="./images/instagram.png" height="30px" width="30px"></a></a>
+                <a href="https://www.linkedin.com/feed/"><img src="./images/linkedin.png" height="30px" width="30px"></a></a>
             </div>
         </div>
     </footer>
-
-
 
     <script>
         console.log("Dairy Management System Loaded");
@@ -411,5 +269,6 @@ footer {
             navLinks.classList.toggle("active");
         });
     </script>
+
 </body>
 </html>
