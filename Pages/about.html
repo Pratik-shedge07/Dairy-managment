@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +12,20 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
+
         body {
             background: #fafafa;
             color: #333;
             text-align: center;
             font-size: 16px;
         }
+
         .container {
             width: 80%;
             margin: 0 auto;
             padding: 50px 20px;
         }
-        
+
         /* Section Styles */
         .section {
             background: #fff;
@@ -32,26 +35,33 @@
             margin-bottom: 60px;
             transition: transform 0.3s ease-in-out;
         }
+
         .section:hover {
             transform: translateY(-5px);
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             font-weight: 600;
             color: #2c3e50;
         }
+
         h1 {
             font-size: 2.8rem;
             margin-bottom: 20px;
         }
+
         h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
+
         p {
             font-size: 1.1rem;
             color: #555;
             line-height: 1.6;
         }
+
         .highlight {
             color: #27ae60;
             font-weight: bold;
@@ -64,6 +74,7 @@
             gap: 30px;
             flex-wrap: wrap;
         }
+
         .feature {
             background: #f9f9f9;
             padding: 20px;
@@ -73,14 +84,17 @@
             text-align: center;
             transition: transform 0.3s;
         }
+
         .feature:hover {
             transform: scale(1.05);
         }
+
         .feature i {
             font-size: 2rem;
             color: #27ae60;
             margin-bottom: 10px;
         }
+
         .feature h3 {
             font-size: 1.3rem;
             color: #2c3e50;
@@ -94,6 +108,7 @@
             gap: 50px;
             flex-wrap: wrap;
         }
+
         .member {
             background: #fff;
             padding: 25px;
@@ -103,9 +118,11 @@
             max-width: 230px;
             transition: transform 0.3s ease-in-out;
         }
+
         .member:hover {
             transform: translateY(-5px);
         }
+
         .member img {
             width: 120px;
             height: 120px;
@@ -114,21 +131,35 @@
             margin-bottom: 15px;
             border: 3px solid #27ae60;
         }
+
+        /* Social Links */
         .social-links {
             margin-top: 10px;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
+            font-size: 0.9rem;
+            /* Smaller Font */
         }
+
         .social-links a {
             text-decoration: none;
-            font-size: 1.5rem;
             color: #2c3e50;
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
+
+        .social-links a i {
+            font-size: 1.2rem;
+            /* Adjusted icon size */
+        }
+
         .social-links a:hover {
             color: #27ae60;
         }
+
 
         /* Fade-in animation */
         .fade-in {
@@ -136,6 +167,7 @@
             transform: translateY(20px);
             transition: opacity 1s ease, transform 1s ease;
         }
+
         .visible {
             opacity: 1;
             transform: translateY(0);
@@ -143,11 +175,13 @@
     </style>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="section fade-in" id="about-section">
             <h1>About <span class="highlight">Dairy Management</span></h1>
-            <p>Welcome to <span class="highlight">Dairy Management</span>, the leading platform designed to help dairy farmers and businesses efficiently manage operations and increase productivity.</p>
+            <p>Welcome to <span class="highlight">Dairy Management</span>, the leading platform designed to help dairy
+                farmers and businesses efficiently manage operations and increase productivity.</p>
             <p>We aim to make dairy farming simpler and more sustainable through digital innovation.</p>
             <p>Join us in revolutionizing the dairy industry for a smarter future!</p>
         </div>
@@ -186,7 +220,8 @@
                     <h3>Yash Yeole</h3>
                     <p>Co-Founder & Developer</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/yashyeole09/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/yashyeole09/" target="_blank"><i
+                                class="fab fa-linkedin"></i>LinkedIn</a>
                         <a href="https://github.com/yashyeole09" target="_blank"><i class="fab fa-github"></i>Github</a>
                     </div>
                 </div>
@@ -195,8 +230,10 @@
                     <h3>Pratik Shedge</h3>
                     <p>Co-Founder & Designer</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/pratik-shedge-995037293/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-                        <a href="https://github.com/Pratik-shedge07" target="_blank"><i class="fab fa-github"></i>Github</a>
+                        <a href="https://www.linkedin.com/in/pratik-shedge-995037293/" target="_blank"><i
+                                class="fab fa-linkedin"></i>LinkedIn</a>
+                        <a href="https://github.com/Pratik-shedge07" target="_blank"><i
+                                class="fab fa-github"></i>Github</a>
                     </div>
                 </div>
             </div>
@@ -204,9 +241,10 @@
     </div>
 
     <script>
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
         });
     </script>
 </body>
+
 </html>
