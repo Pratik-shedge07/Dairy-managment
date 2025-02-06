@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(120deg, #000000, #2c3e50);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .register-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            width: 350px;
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-box {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .input-box input, .input-box select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus, .input-box select:focus {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn {
+            background: #e67e22;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #d35400;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #f1c40f;
+        }
+
+        h2, .login-link {
+            color: white;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .login-link:hover {
+            color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <button class="close-btn" onclick="goToHomePage()">&times;</button>
+        <h2>Register</h2>
+        <form onsubmit="return handleRegister(event)">
+            <div class="input-box">
+                <input type="text" id="username" required placeholder="Username">
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" required placeholder="Password">
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" required placeholder="Email">
+            </div>
+            <div class="input-box">
+                <input type="date" id="dob" required>
+            </div>
+            <div class="input-box">
+                <select id="city" required>
+                    <option value="" disabled selected>Select City</option>
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Houston">Houston</option>
+                    <option value="Miami">Miami</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Register</button>
+        </form>
+        <a href="login.html" class="login-link">Already have an account? Login here</a>
+    </div>
+
+    <script>
+        function handleRegister(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const email = document.getElementById('email').value;
+            const dob = document.getElementById('dob').value;
+            const city = document.getElementById('city').value;
+            
+            if (username && password && email && dob && city) {
+                alert('Registration successful!');
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        function goToHomePage() {
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>
