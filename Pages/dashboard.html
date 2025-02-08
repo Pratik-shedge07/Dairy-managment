@@ -141,8 +141,8 @@
 
         .main-content {
             flex: 1;
-            padding: 100px 20px 20px; /* Ensures content starts below navbar */
-            margin-left: 270px; /* Adjusted for sidebar width */
+            padding: 100px 20px 80px; /* Adjusted bottom padding to prevent footer overlap */
+            margin-left: 270px;
         }
 
         .chart-container {
@@ -177,14 +177,65 @@
         }
 
         footer {
-            background: #222;
+            background: #000000;
             color: white;
             padding: 40px 0;
             text-align: center;
-            position: fixed;
             width: 100%;
+            position: relative; /* Changed from fixed to relative */
             bottom: 0;
             left: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .footer-content div {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+
+        .footer-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9800;
+            padding-bottom: 5px;
+        }
+
+        .quick-links ul {
+            list-style: none;
+        }
+
+        .quick-links ul li a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .quick-links ul li a:hover {
+            color: #ff9800;
+        }
+
+        .social-media a {
+            display: inline-block;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-media a:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            font-size: 14px;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -231,8 +282,41 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Dairy Clouds. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Phone: +91 9561510000</p>
+                <p>Email: support@krushna.com</p>
+                <p>Address: India</p>
+            </div>
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <a href="https://facebook.com/" target="_blank"><img src="../images/facebook.png" height="30px" width="30px" alt="Facebook"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="../images/Twitter.png" height="30px" width="30px" alt="Twitter"></a>
+                <a href="https://instagram.com/" target="_blank"><img src="../images/instagram.png" height="30px" width="30px" alt="Instagram"></a>
+                <a href="https://linkedin.com/" target="_blank"><img src="../images/linkedin.png" height="30px" width="30px" alt="LinkedIn"></a>
+            </div>
+            <div class="newsletter-signup">
+                <h3>Newsletter Signup</h3>
+                <form>
+                    <input type="email" placeholder="Your email address" required>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dairy Clouds. All rights reserved.</p>
+        </div>
     </footer>
+
 
     <script>
         const hamburger = document.querySelector(".hamburger");
