@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings - Dairy Management</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f5f5f5;
+            color: #333;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background: #ffffff;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #e0e0e0;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+        }
+        .earnings-form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+        .earnings-form h2 {
+            margin-bottom: 20px;
+        }
+        .earnings-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .earnings-form input, .earnings-form select, .earnings-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .earnings-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .earnings-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Dairy Management</h2>
+        <nav>
+            <ul>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./milkin.html">Milk In</a></li>
+                <li><a href="./milkout.html">Milk Out</a></li>
+                <li><a href="./earning.html">Earnings</a></li>
+            </ul>
+            </ul>
+        </nav>
+    </aside>
+    
+    <div class="container">
+        <div class="earnings-form">
+            <h2>Earnings Entry</h2>
+            <form>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                
+                <label for="source">Source:</label>
+                <input type="text" id="source" name="source" required>
+                
+                <label for="amount">Amount ($):</label>
+                <input type="number" id="amount" name="amount" step="0.01" required>
+                
+                <label for="notes">Notes:</label>
+                <input type="text" id="notes" name="notes">
+                
+                <button type="submit">Add Entry</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
