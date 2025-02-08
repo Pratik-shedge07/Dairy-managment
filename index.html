@@ -14,6 +14,7 @@
 
         body {
             background-color: #f4f4f4;
+            padding-top: 70px; /* Prevents content from being hidden behind navbar */
         }
 
         .navbar {
@@ -29,14 +30,13 @@
             left: 0;
             z-index: 1000;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; /* Add margin at the bottom */
         }
 
         .navbar .logo {
             font-size: 2rem;
             font-weight: bold;
             color: #fff;
-            text-transform: uppercase;
-            transition: color 0.3s ease-in-out;
         }
 
         .nav-links {
@@ -53,122 +53,90 @@
             color: white;
             font-size: 1.1rem;
             font-weight: 500;
-            transition: all 0.3s ease-in-out;
+        }
+
+        /* Slideshow Styling */
+        .slideshow-container {
             position: relative;
+            max-width: 100%;
+            height: 600px; /* Increased height */
+            margin: 30px auto; /* Added margin for spacing */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .nav-links a::after {
-            content: "";
-            width: 0%;
-            height: 3px;
-            background: #fff;
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
             position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: width 0.3s ease-in-out;
+            animation: fadeEffect 1.5s ease-in-out;
         }
 
-        .nav-links a:hover::after {
+        @keyframes fadeEffect {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Prevents stretching */
+        }
+
+        /* Navigation Dots */
+        .dots {
+            text-align: center;
+            position: absolute;
+            bottom: 15px;
             width: 100%;
         }
 
-        .nav-links a:hover {
-            color: #f1f1f1;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 2rem;
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
             cursor: pointer;
-            color: white;
         }
 
-        .hamburger.active {
-            transform: rotate(90deg);
+        .active {
+            background-color: #ff9800;
         }
 
-        /* Responsive Styles */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.95);
-                text-align: center;
-                padding: 10px 0;
-                border-radius: 5px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 15px 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: url('https://source.unsplash.com/1600x900/?dairy,farm') no-repeat center center/cover;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        /* Get Started Button Styling */
+        .get-started-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 15px;
             text-align: center;
-            padding: 120px 20px;
-        }
-
-        .hero h1 {
-            font-size: 3em;
-        }
-
-        button {
-            padding: 12px 20px;
             background-color: #ff9800;
             color: white;
-            border: none;
-            font-size: 18px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 25px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease-in-out;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
-        button:hover {
+        .get-started-btn:hover {
             background-color: #e68900;
         }
 
-        /* Sections */
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 50px 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            text-align: center;
-            border-bottom: 3px solid #ff9800;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        /* Footer */
+        /* Footer Styling */
         footer {
             background: #222;
             color: white;
             padding: 40px 0;
             font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
         }
 
         .footer-content {
@@ -193,11 +161,6 @@
             padding-bottom: 5px;
         }
 
-        .contact-info p, .quick-links ul, .social-media a {
-            font-size: 16px;
-            margin: 8px 0;
-        }
-
         .quick-links ul {
             list-style: none;
         }
@@ -212,33 +175,28 @@
             color: #ff9800;
         }
 
-        .social-media a {
-            display: inline-block;
-            margin-right: 10px;
-            transition: transform 0.3s ease;
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
         }
 
-        .social-media a:hover {
+        .social-icons a img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a img:hover {
             transform: scale(1.2);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                padding: 10px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
+        .footer-bottom {
+            padding-top: 20px;
+            font-size: 14px;
         }
+
     </style>
 </head>
 <body>
@@ -253,35 +211,22 @@
             <li><a href="./Pages/contact.html">Contact us</a></li>
             <li><a href="./Pages/login.html">Login</a></li>
         </ul>
-        <div class="hamburger">&#9776;</div>
     </nav>
 
-    <section id="home" class="hero">
-        <h1>Efficient Dairy Management System</h1>
-        <p>Managing Dairy Operations with Ease</p>
-        <button onclick="">Get Started</button>
-    </section>
+    <div class="slideshow-container">
+        <div class="slide"><img src="./images/image.jpg" alt="Dairy Image 1"></div>
+        <div class="slide"><img src="./images/image 1.jpeg" alt="Dairy Image 2"></div>
+        <div class="slide"><img src="./images/image 2.avif" alt="Dairy Image 3"></div>
 
-    <section id="about">
-        <h2>About Dairy Management</h2>
-        <p>Dairy management involves tracking milk production, inventory, animal health, and financial reporting. Our system helps farmers streamline their operations.</p>
-    </section>
+        <div class="dots">
+            <span class="dot" onclick="setSlide(0)"></span> 
+            <span class="dot" onclick="setSlide(1)"></span> 
+            <span class="dot" onclick="setSlide(2)"></span> 
+        </div>
+    </div>
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Milk Production Tracking</li>
-            <li>Inventory Management</li>
-            <li>Financial Reporting</li>
-            <li>Animal Health Monitoring</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: info@dairymanagement.com</p>
-        <p>Phone: +123 456 7890</p>
-    </section>
+    <!-- Get Started Button -->
+    <a href="./Pages/login.html" class="get-started-btn">Get Started</a>
 
     <footer>
         <div class="footer-content">
@@ -302,10 +247,12 @@
             </div>
             <div class="social-media">
                 <h3>Follow Us</h3>
-                <a href="https://facebook.com/" target="_blank"><img src="./images/facebook.png" height="30px" width="30px"></a>
-                <a href="https://facebook.com/" target="_blank"><img src="./images/instagram.png" height="30px" width="30px"></a>
-                <a href="https://facebook.com/" target="_blank"><img src="./images/Twitter.png" height="30px" width="30px"></a>
-                <a href="https://facebook.com/" target="_blank"><img src="./images/linkedin.png" height="30px" width="30px"></a>
+                <div class="social-icons">
+                    <a href="https://facebook.com/" target="_blank"><img src="./images/facebook.png" alt="Facebook"></a>
+                    <a href="https://twitter.com/" target="_blank"><img src="./images/Twitter.png" alt="Twitter"></a>
+                    <a href="https://instagram.com/" target="_blank"><img src="./images/instagram.png" alt="Instagram"></a>
+                    <a href="https://linkedin.com/" target="_blank"><img src="./images/linkedin.png" alt="LinkedIn"></a>
+                </div>
             </div>
             <div class="newsletter-signup">
                 <h3>Newsletter Signup</h3>
@@ -320,16 +267,18 @@
     </footer>
 
     <script>
-        console.log("Dairy Management System Loaded");
-
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
-
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.querySelectorAll(".slide");
+            let dots = document.querySelectorAll(".dot");
+            slides.forEach(slide => slide.style.display = "none");
+            dots.forEach(dot => dot.classList.remove("active"));
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].style.display = "block";
+            dots[slideIndex].classList.add("active");
+            setTimeout(showSlides, 3000);
+        }
+        document.addEventListener("DOMContentLoaded", showSlides);
     </script>
-
 </body>
 </html>
