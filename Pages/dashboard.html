@@ -3,231 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dairy Management Dashboard</title>
     <style>
-        * {
+        body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            display: flex;
+            background-color: #f5f5f5;
+            color: #333;
+            height: 100vh;
         }
-
-        body {
-            background-color: #f4f4f4;
-        }
-
         .sidebar {
             width: 250px;
-            height: 100vh;
-            background: #1c2833;
+            background: #ffffff;
             padding: 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            height: 100vh;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .navbar .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #fff; /* White text */
-            text-transform: uppercase;
-            transition: color 0.3s ease-in-out;
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
         }
-
         .sidebar ul {
             list-style: none;
+            padding: 0;
         }
-
         .sidebar ul li {
             padding: 15px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.3s;
-            color: #ecf0f1;
-        }
-
-        .sidebar ul li:hover, .sidebar ul li.active {
-            background: #34495e;
             border-radius: 5px;
+            margin-bottom: 10px;
+            transition: 0.3s;
         }
-
         .sidebar ul li a {
+            color: #333;
             text-decoration: none;
-            color: white; /* White text */
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease-in-out;
-            position: relative;
+            display: block;
         }
-
-        /* Underline Hover Effect */
-        .nav-links a::after {
-            content: "";
-            width: 0%;
-            height: 3px;
-            background: #fff; /* White underline */
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: width 0.3s ease-in-out;
+        .sidebar ul li:hover {
+            background: #e0e0e0;
         }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: #f1f1f1; /* Slightly lighter white */
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: white;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .hamburger:hover {
-            transform: rotate(90deg);
-        }
-
-        /* Responsive Styles */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.95); /* Dark overlay */
-                text-align: center;
-                padding: 10px 0;
-                border-radius: 5px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        table th, table td {
-            padding: 10px;
-            border-bottom: 1px solid #2c3e50;
-            text-align: left;
-            color: #ecf0f1;
-        }
-
-        /* Main Content */
-        main {
-            flex: 1;
-            padding: 80px 20px 20px; /* Added top padding to avoid overlap with navbar */
-            text-align: center;
-        }
-
-        footer {
-            background: #222;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .footer-content {
+        .dashboard {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        .footer-content div {
             flex: 1;
-            min-width: 250px;
-            margin: 10px;
         }
-
-        .footer-content h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ff9800;
-            padding-bottom: 5px;
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
         }
-
-        .quick-links ul {
-            list-style: none;
+        .chart-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            height: 400px;
         }
-
-        .quick-links ul li a {
-            text-decoration: none;
-            color: #ddd;
-            transition: color 0.3s ease-in-out;
+        .content-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
         }
-
-        .quick-links ul li a:hover {
-            color: #ff9800;
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
-
-        .social-media a {
-            display: inline-block;
-            margin-right: 10px;
-            transition: transform 0.3s ease;
+        .card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 180px;
+            color: #333;
         }
-
-        .social-media a:hover {
-            transform: scale(1.2);
-        }
-
-        .footer-bottom {
-            padding-top: 20px;
-            font-size: 14px;
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Dairy Management</h2>
+            <nav>
+                <ul>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./milkin.html">Milk In</a></li>
+                    <li><a href="./milkout.html">Milk Out</a></li>
+                    <li><a href="./earning.html">Earnings</a></li>
+            </nav>
+        </aside>
 
-    <nav class="navbar">
-        <div class="logo">Dairy Clouds</div>
-        <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../Pages/product.html">Products</a></li>
-                <li><a href="../Pages/dashboard.html">Dashboard</a></li>
-                <li><a href="../Pages/about.html">About us</a></li>
-                <li><a href="../Pages/contact.html">Contact us</a></li>
-                <li><a href="../Pages/login.html">Login</a></li>
-        </ul>
-        <div class="hamburger">&#9776;</div>
-    </nav>
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Dashboard</h1>
+            <div class="content-wrapper">
+                <!-- Milk Report Chart -->
+                <div class="chart-container">
+                    <canvas id="milkChart"></canvas>
+                </div>
+                <div class="cards">
+                    <div class="card">Milk In: <strong>370 L</strong></div>
+                    <div class="card">Milk Out: <strong>310 L</strong></div>
+                    <div class="card">Stock: <strong>60 L</strong></div>
+                    <div class="card">Earnings: <strong>$37,594</strong></div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script>
-        var ctx = document.getElementById('milkChart').getContext('2d');
-        var milkChart = new Chart(ctx, {
+        const ctx = document.getElementById('milkChart').getContext('2d');
+        new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                datasets: [{
-                    label: 'Milk In',
-                    data: [300, 400, 350, 420, 500, 380],
-                    backgroundColor: 'rgba(46, 204, 113, 0.8)'
-                }, {
-                    label: 'Milk Out',
-                    data: [280, 350, 320, 400, 450, 360],
-                    backgroundColor: 'rgba(231, 76, 60, 0.8)'
-                }]
+                datasets: [
+                    {
+                        label: 'Milk In',
+                        data: [400, 450, 480, 500, 520, 530],
+                        backgroundColor: 'rgba(75, 192, 192, 0.8)',
+                    },
+                    {
+                        label: 'Milk Out',
+                        data: [300, 320, 340, 350, 360, 370],
+                        backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    }
+                }
             }
         });
     </script>
 </body>
-<<<<<<< Tabnine <<<<<<<
 </html>
->>>>>>> Tabnine >>>>>>>// {"conversationId":"e013dfb2-6e8f-47c9-aef3-514d933f20f2","source":"instruct"}
